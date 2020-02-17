@@ -17,7 +17,12 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'List',
+      title: 'Mis cortes',
+      url: '/list',
+      icon: 'list'
+    },
+    {
+      title: 'Tendencias',
       url: '/list',
       icon: 'list'
     }
