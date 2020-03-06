@@ -28,5 +28,11 @@
       <ion-label>Baberias en SPS</ion-label>
     </ion-list-header>
       <!-- Aqui voy a mostrar las barberias subcriptas a la APP -->
+      <ion-item-sliding *ngFor ="let barbers of Barberia" text-center>
+        <ion-label>
+        <h2>  {{barbers.Nombre}}</h2>
+        </ion-label>
+      </ion-item-sliding>
+
   </ion-list>
 </ion-content>

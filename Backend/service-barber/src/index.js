@@ -1,41 +1,41 @@
 const express = require ('express');
-const morgan =require ('morgan');
+// const morgan =require ('morgan');
 const bodyParser = require("body-parser");
 var cors = require('cors');
-//const exphbs = require('express-handlebars');
-//const path = require('paht');
-
 
 //initialiacion
-const app = express();
+var app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
 
 //setting
 app.set('port', process.env.PORT || 3000);
-// app.set('views',path.join(_dirname, 'views'));
-// app.engine('.hbs',exphbs({
-//     defaultLayout: 'main',
-//     layoutsDir:path.join(app.get('views'),'layouts'),
-//     partialsDir: path.join(app.get('view'),'partials'),
-//     extname:'.hbs'    
-// }))
+
 
 //middelewares
- app.use(morgan('dev'));
- app.use(express.urlencoded({extended:false}));
- app.use(express.json());
+//  app.use(morgan('dev'));
+//  app.use(express.urlencoded({extended:false}));
+//  app.use(express.json());
 
 //global variables
-app.use((req,res,next)=>{
-next();
-})
+// app.use((req,res,next)=>{
+// next();
+// })
 
-//routers
+//declarando routes
 app.use(require('./routes'));
-app.use(require('./routes/authentification'));
-app.use('/links',require('./routes/links'));
+const authentificationRoutes = require("./routes/authentification");
+const BaberiasRoutes = require("./routes/barberias");
+
+
+
+
+// usando routes
+app.use("/usuario",authentificationRoutes);
+app.use("/barberias",BaberiasRoutes);
+
+// app.use('/links',require('./routes/links'));
 
 //public
 

@@ -1,34 +1,35 @@
-<ion-header  translucent>
+
+ <ion-header  translucent>
 <ion-toolbar>
   <ion-title>Crear Cuenta</ion-title>
 </ion-toolbar>
 </ion-header>
-
-<ion-content fullscreen>
-<form >
+ 
+ <ion-content padding center text-center>
   <ion-list lines="full" class="ion-no-margin ion-no-padding">
     <ion-item>
-      <ion-label position="stacked">Nombre </ion-label>
-      <ion-input required type="text" oninput="handleFirstNameValue(event)"></ion-input>
+      <ion-input placeholder="Nombres" [(ngModel)]="Usuarios.Nombres" ></ion-input>
     </ion-item>
-
-    <ion-item>
-      <ion-label position="stacked">Apellido</ion-label>
-      <ion-input required type="text" ></ion-input>
+     <ion-item>
+      <ion-input placeholder="Apellidos" [(ngModel)]="Usuarios.Apellidos"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked">usuario</ion-label>
-      <ion-input required type="text" ></ion-input>
+      <ion-input placeholder="Usuario" [(ngModel)]="Usuarios.Usuario"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked">Contrase;a</ion-label>
-      <ion-input required type="text"  type="password"></ion-input>
-    </ion-item>
-
+      <ion-input placeholder="Contraseña" [(ngModel)]="Usuarios.Password" type="password"></ion-input>
+    </ion-item> 
+    <ion-item>
+      <ion-select placeholder="Tipo de Usuario" [(ngModel)]="Usuarios.Id_rol">
+        <!-- <ion-select-option value="0">Tipo Usuario</ion-select-option> -->
+        <ion-select-option >Cliente</ion-select-option> 
+        <ion-select-option >Propietario</ion-select-option>          
+      </ion-select>
+    </ion-item> 
   </ion-list>
 
-  <div class="ion-padding">
-    <ion-button expand="block" type="submit" class="ion-no-margin">Crear Cuenta</ion-button>
-  </div>
-</form>
+   <div class="ion-padding">
+    <ion-button expand="block" type="submit" class="ion-no-margin"(click) ="CrearUsuario()">Crear Cuenta</ion-button>
+  </div> 
+
 </ion-content>

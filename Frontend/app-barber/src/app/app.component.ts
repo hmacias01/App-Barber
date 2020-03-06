@@ -18,7 +18,7 @@ export class AppComponent {
     },
     {
       title: 'Mis cortes',
-      url: '/list',
+      url: '/cortes',
       icon: 'list'
     },
     {
