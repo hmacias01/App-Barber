@@ -1,6 +1,6 @@
 export class barberias{
     constructor(
-        public IdBarberi:number,
+        public IdBarberia:number,
         public Nombre: string,
         public Direccion: string,
         public Telefono: string,

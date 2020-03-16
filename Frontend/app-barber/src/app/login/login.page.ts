@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from "../service/usuario.service";
 import {Router} from "@angular/router";
 import { usuario } from '../models/usuario';
+import { FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +10,10 @@ import { usuario } from '../models/usuario';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  LoginForm : FormGroup
   public Usuario: usuario;
 
-  constructor(private loginservice: UsuarioService, private router : Router) { 
+  constructor( private loginservice: UsuarioService, private router : Router) { 
     this.Usuario= new usuario(0,"","","","",0);
   }
 

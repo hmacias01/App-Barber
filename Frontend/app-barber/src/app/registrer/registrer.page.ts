@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {usuario } from "../models/usuario";
 import { UsuarioService } from "../service/usuario.service";
 import {  AlertController, Platform} from "@ionic/angular";
+import { Router} from "@angular/router";
 
 @Component({
   selector: 'app-registrer',
@@ -13,7 +14,7 @@ export class RegistrerPage implements OnInit {
 
   constructor(
     private usuarioservice: UsuarioService,
-    public alertController : AlertController,
+    public alertController : AlertController, private router : Router
   ) { 
     this.Usuarios = new usuario(0,"","","","",0);
   }
@@ -31,6 +32,7 @@ export class RegistrerPage implements OnInit {
         err => console.error()
       );
       }
+      this.router.navigate(['login']);
     }
 
     // EditarUsuario(id:Number){

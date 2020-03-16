@@ -45,6 +45,7 @@ Router.post('/add', async (req, res) =>{
     const contraseña = req.body.contraseña
     const idrol = req.body.idrol
 
+
     const queryString = "INSERT INTO usuario (nombres, apellidos, identidad, correo, direccion, usuario, contraseña, idrol) VALUES (?,?,?,?,?,?,?,(SELECT idrol FROM rol WHERE idrol = ?)) "
     pool.query(queryString, [nombres, apellidos, identidad, correo, direccion, usuario, contraseña, idrol], (err, results, fields) =>{
         if (err){

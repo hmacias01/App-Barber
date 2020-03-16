@@ -8,11 +8,11 @@ import { BarberiasService } from "../service/barberias.service";
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  Barberias: barberias;
+ // Barberias: barberias;
   Barberia : barberias[];
 
   constructor(private barbeservice:BarberiasService) {
-    this.Barberias= new barberias(0,"","","","",0,0);
+    //this.Barberias= new barberias(0,"","","","",0,0);
   }
 
   ionViewWillEnter(){

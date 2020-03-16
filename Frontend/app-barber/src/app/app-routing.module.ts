@@ -1,12 +1,12 @@
 import { NgModule, Component } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { homedir } from 'os';
+
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   // {
@@ -30,12 +30,16 @@ const routes: Routes = [
     loadChildren: () => import('./registrer/registrer.module').then( m => m.RegistrerPageModule)
   },
   {
-    path: 'barberias',
+    path: 'home/barberias/:id',
     loadChildren: () => import('./pages/barberias/barberias.module').then( m => m.BarberiasPageModule)
   },
   {
-    path: 'cortes',
+    path: 'home/cortes',
     loadChildren: () => import('./pages/cortes/cortes.module').then( m => m.CortesPageModule)
+  },
+  {
+    path: 'home/barberias/:id/reservarcita',
+    loadChildren: () => import('./pages/reservarcita/reservarcita.module').then( m => m.ReservarcitaPageModule)
   }
  
 ];

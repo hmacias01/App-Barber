@@ -18,11 +18,11 @@ export class AppComponent {
     },
     {
       title: 'Mis cortes',
-      url: '/cortes',
+      url: '/home/cortes',
       icon: 'list'
     },
     {
-      title: 'Tendencias',
+      title: 'Cita Reservada',
       url: '/list',
       icon: 'list'
     }

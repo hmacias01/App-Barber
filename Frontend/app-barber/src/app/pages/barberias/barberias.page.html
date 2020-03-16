@@ -1,9 +1,57 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>barberias</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+     Barberías
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-card class="welcome-card">
+    <img style="max-width: 17vh; height: 100px;width: 100px;" src="" alt=""/>
+    <ion-card-header>   
+      <ion-card-title ></ion-card-title>
+    </ion-card-header>
+  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card >
+          <img style="max-width: 17vh; height: 100px;width: 100px;" src="" alt=""/>
+          <ion-card-header>   
+            <ion-card-subtitle>Informacion  general</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card class="welcome-card">
+          <img style="max-width: 17vh; height: 100px;width: 100px;" src="" alt=""/>
+          <ion-card-header>   
+            <ion-card-subtitle>productos y servicios</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>        
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card class="welcome-card" routerLink="reservarcita">
+          <img style="max-width: 17vh; height: 100px;width: 100px;" src="" alt=""/>
+          <ion-card-header >   
+            <ion-card-subtitle >Reservar cita</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card class="welcome-card">
+          <img style="max-width: 17vh; height: 100px;width: 100px;" src="" alt=""/>
+          <ion-card-header>   
+            <ion-card-subtitle>Evaluar</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

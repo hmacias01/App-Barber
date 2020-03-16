@@ -11,10 +11,10 @@
 
 <ion-content>
   <ion-card class="welcome-card">
-    <img src="/assets/shapes.svg" alt=""/>
-    <ion-card-header>
-      <ion-card-subtitle>Whole Barber shop</ion-card-subtitle>
-      <ion-card-title>A tu disposicion</ion-card-title>
+    <img style="max-width: 17vh; height: 100px;width: 100px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcREy7tQOUsKx9AO46bPt5WdCw97azLhLDP7EHseQe9mK48ta8y9" alt=""/>
+    <ion-card-header>   
+      <ion-card-title>Whole Barber shop</ion-card-title>
+      <ion-card-subtitle>A tu disposicion</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
       <p>
@@ -23,14 +23,15 @@
     </ion-card-content>
   </ion-card>
 
+  <ion-list-header>
+    <!-- <ion-label>Baberias en SPS</ion-label> -->
+    <ion-searchbar showCancelButton="focus" ></ion-searchbar>
+  </ion-list-header>
   <ion-list lines="none">
-    <ion-list-header>
-      <ion-label>Baberias en SPS</ion-label>
-    </ion-list-header>
       <!-- Aqui voy a mostrar las barberias subcriptas a la APP -->
       <ion-item-sliding *ngFor ="let barbers of Barberia" text-center>
         <ion-label>
-        <h2>  {{barbers.Nombre}}</h2>
+       <a routerLink="barberias/{{barbers.IdBarberia}}" [queryParams]="{action1:'edit'}"> <h2>{{barbers.Nombre}}</h2></a>
         </ion-label>
       </ion-item-sliding>
 
