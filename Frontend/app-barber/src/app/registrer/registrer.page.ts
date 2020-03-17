@@ -35,6 +35,10 @@ export class RegistrerPage implements OnInit {
       this.router.navigate(['login']);
     }
 
+    regregarlogin(){
+      this.router.navigate(['login']);
+    }
+
     // EditarUsuario(id:Number){
     //   if(this.Usuarios){
     //     this.usuarioservice.Editarusuario(this.Usuarios).subscribe(data =>

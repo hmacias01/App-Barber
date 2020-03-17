@@ -1,0 +1,23 @@
+CREATE DATABASE `barber` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE TABLE `barberias` (
+  `IdBarberia` int(11) NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(45) NOT NULL,
+  `Direccion` varchar(45) NOT NULL,
+  `Telefono` varchar(45) DEFAULT NULL,
+  `Foto` tinyblob,
+  `Id_Usuario` int(11) NOT NULL,
+  `CantBarbero` int(11) DEFAULT NULL,
+  `Correo` varchar(45) NOT NULL,
+  `Horarios` varchar(45) NOT NULL,
+  PRIMARY KEY (`IdBarberia`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `usuario` (
+  `idUsuario` int(11) NOT NULL AUTO_INCREMENT,
+  `Nombres` varchar(25) NOT NULL,
+  `Apellidos` varchar(25) NOT NULL,
+  `Usuario` varchar(35) NOT NULL,
+  `Password` varchar(25) NOT NULL,
+  `Id_rol` varchar(25) NOT NULL,
+  PRIMARY KEY (`idUsuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;

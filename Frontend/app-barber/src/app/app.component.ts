@@ -19,12 +19,17 @@ export class AppComponent {
     {
       title: 'Mis cortes',
       url: '/home/cortes',
-      icon: 'list'
+      icon: 'person'
     },
     {
       title: 'Cita Reservada',
       url: '/list',
-      icon: 'list'
+      icon: 'calendar'
+    },
+    {
+      title: 'Cerrar sesion',
+      url: '/login',
+      icon: 'log-out'
     }
   ];
 

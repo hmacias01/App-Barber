@@ -1,14 +1,17 @@
 
- <ion-header  translucent>
-<ion-toolbar >
-  <ion-title padding center text-center>Crear Cuenta</ion-title>
-</ion-toolbar>
-</ion-header>
- 
  <ion-content padding center text-center>
+  <ion-button class="back-button"size="small" fill="outline" (click) ="regregarlogin()">
+    <ion-icon slot="start" name="md-arrow-back"></ion-icon>
+  </ion-button>
+  <br>
+  <img src="../.././/assets/logo2.png">
+  <br>
+  <ion-toolbar >
+    <ion-title padding center text-center>Crear Cuenta</ion-title>
+  </ion-toolbar>
   <ion-list lines="full" class="ion-no-margin ion-no-padding">
     <ion-item>
-      <ion-input placeholder="Nombres" [(ngModel)]="Usuarios.Nombres" ></ion-input>
+      <ion-input placeholder="Nombres" [(ngModel)]="Usuarios.Nombres" autofocus="true"></ion-input>
     </ion-item>
      <ion-item>
       <ion-input placeholder="Apellidos" [(ngModel)]="Usuarios.Apellidos"></ion-input>
@@ -20,15 +23,17 @@
       <ion-input placeholder="Contraseña" [(ngModel)]="Usuarios.Password" type="password"></ion-input>
     </ion-item> 
     <ion-item>
-      <ion-select placeholder="Tipo de Usuario" [(ngModel)]="Usuarios.Id_rol">
+      <ion-label>Tipo Usuario</ion-label>
+      <ion-select placeholder="seleccionar" [(ngModel)]="Usuarios.Id_rol">
         <!-- <ion-select-option value="0">Tipo Usuario</ion-select-option> -->
         <ion-select-option >Cliente</ion-select-option> 
-        <ion-select-option >Propietario</ion-select-option>          
+        <ion-select-option >Propietario</ion-select-option> 
+        <ion-select-option >Barbero</ion-select-option>                 
       </ion-select>
     </ion-item> 
   </ion-list>
 
    <div class="ion-padding">
-    <ion-button expand="block" type="submit" class="ion-no-margin"(click) ="CrearUsuario()">Crear Cuenta</ion-button>
+    <ion-button color="secondary" expand="block" type="submit" class="ion-no-margin"(click) ="CrearUsuario()">Crear Cuenta</ion-button>
   </div> 
 </ion-content>

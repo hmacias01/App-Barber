@@ -1,20 +1,21 @@
 
-  <ion-header  translucent>
-    <ion-toolbar>
-      <ion-title padding center text-center>Iniciar Sesión</ion-title>
-    </ion-toolbar>
-    </ion-header>
-
     <ion-content padding center text-center>
+<br>
+      <img src="../.././/assets/logo2.png">
+      <br>
+      <ion-toolbar>
+        <ion-title padding center text-center>Iniciar Sesión</ion-title>
+      </ion-toolbar>
      <ion-list lines="full" class="ion-no-margin ion-no-padding"> 
       <ion-item>
-      <ion-input placeholder="Usuario" [(ngModel)]="Usuario.Usuario"></ion-input>
+      <ion-input placeholder="Usuario"  [(ngModel)]="Usuario.Usuario" autofocus="true"></ion-input>
     </ion-item>
     <ion-item>
       <ion-input placeholder="Contraseña" type="password" [(ngModel)]="Usuario.Password"></ion-input>
     </ion-item>
   </ion-list> 
-   <ion-button full (click)="Logueo()">Entrar</ion-button>
+  <br>
+   <ion-button color="secondary" expand="block" (click)="Logueo()">Entrar</ion-button>
   <hr>
-    <ion-button full [routerLink]="'/register'">Registrarse</ion-button>
+    <ion-button expand="block" fill="outline" [routerLink]="'/register'">Registrarse</ion-button>
 </ion-content>
