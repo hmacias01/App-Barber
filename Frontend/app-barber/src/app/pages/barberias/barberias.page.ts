@@ -10,8 +10,9 @@ import { BarberiasService } from "../../service/barberias.service";
 })
 export class BarberiasPage implements OnInit {
   Barberia : barberias[];
-  Barberias: barberias;
-  id=null;
+  titulo: any=[];
+
+   id:number=null;
   constructor(private route: ActivatedRoute , private barbeservice:BarberiasService) { 
     console.log(this.route.snapshot.params['id']);
     console.log(this.route.snapshot.queryParams['action1']);
@@ -19,7 +20,14 @@ export class BarberiasPage implements OnInit {
    // console.log(this.Buscarbarber());
     }
   ngOnInit() {
+    this.Mostrartitulo(this.id);
   }
+
+    Mostrartitulo(id){
+      this.barbeservice.ObtenerBarberia(id).subscribe(data =>{
+        this.titulo=data;
+      })
+    }
 
     Buscarbarber(){
       return this.Barberia.filter((barber) =>{return barber.IdBarberia == this.id})[0] || null;

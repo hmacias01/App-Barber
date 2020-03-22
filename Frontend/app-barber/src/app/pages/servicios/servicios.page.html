@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+   Servicios
+    </ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content >
+<ion-grid>
+  <ion-row class="fila1">
+    <ion-col size="5">
+      <h5 color="dark" >Servicio</h5>  
+    </ion-col>
+    <ion-col size="4">
+      <h5 color="dark" >Tiempo</h5>  
+    </ion-col>
+    <ion-col size="3">
+      <h5 color="dark" >Precio</h5>  
+    </ion-col>
+  </ion-row>
+
+  <ion-list *ngFor="let servi of servicios">   
+   <ion-row class="fila2">
+     <ion-col size="5">     
+      <ion-item class="item1" >
+        <label >{{ servi.Nombre}}</label>
+      </ion-item>
+     </ion-col>
+     <ion-col>
+      <ion-item  >
+        <label >{{ servi.Tiempo}} min.</label>
+      </ion-item>
+     </ion-col>
+     <ion-col size="3">
+      <ion-item  >
+        <label >{{ servi.Precio}}</label>
+      </ion-item>
+     </ion-col>
+   
+    </ion-row>    
+    <!-- <ion-row >
+      <ion-col size="5"> 
+        <label >{{ servi.Nombre}}</label>
+      </ion-col> 
+      <ion-col size="4">
+        <label >{{ servi.Nombre}}</label>
+      </ion-col> 
+        <ion-col size="3">   
+        <label class="precioclass">{{ servi.Precio}}</label> 
+      </ion-col> 
+    </ion-row> -->
+
+
+</ion-list> 
+</ion-grid>
+
+
+<br>
+  <h2 text center>Catalogo de cortes</h2>
+    
+</ion-content>

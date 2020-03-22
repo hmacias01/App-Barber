@@ -36,6 +36,26 @@ Router.get('/get/:usuario/:clave', async (req, res) => {
     })
 });
 
+//obteniendo id de usuario logueadi
+Router.get('/get2/:id', async (req, res) => {
+
+    console.log("Seleccionar Usuario por Id: "+ req.params.id)
+
+    const Usuario= req.params.id
+    const queryString = "SELECT u.idUsuario FROM usuario AS u where Usuario=?"
+    pool.query(queryString, [Usuario],(err, rows, fields) => {
+        if(err){
+            console.log("Id" + err)
+            res.sendStatus(500)
+            res.end()
+            return
+        }
+        console.log("id seleccionado")
+        res.json(rows)
+        
+    })
+});
+
 Router.post('/add', async (req, res) =>{
 
     console.log("Tratando de agregar usuario..")

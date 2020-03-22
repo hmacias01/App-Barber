@@ -7,7 +7,8 @@ import { barberias} from "../models/barberias";
 })
 export class BarberiasService {
   apiURL ="http://localhost:3000/barberias/";
-  
+  apiURL2 ="http://localhost:3000/servicios/";
+
   constructor(private http:HttpClient) { }
 
   ObtenerBarberias(){
@@ -18,6 +19,15 @@ export class BarberiasService {
     return this.http.post(
        this.apiURL + "add/" , barberia);
   }
+
+  ObtenerBarberia(id:number){
+    return this.http.get(this.apiURL+"get/"+id);
+  }
+
+  ObtenerServicios(id:number){
+    return this.http.get(this.apiURL2+"getservices/"+id);
+  }
+
 
 
 }

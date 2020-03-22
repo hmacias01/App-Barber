@@ -18,7 +18,7 @@ const routes: Routes = [
      loadChildren:"./home/home.module#HomePageModule"
   },
   {
-    path:'list',
+    path:'home/list',
     loadChildren:"./list/list.module#ListPageModule"
   },
   {
@@ -40,6 +40,14 @@ const routes: Routes = [
   {
     path: 'home/barberias/:id/reservarcita',
     loadChildren: () => import('./pages/reservarcita/reservarcita.module').then( m => m.ReservarcitaPageModule)
+  },
+  {
+    path: 'home/barberias/:id/infogeneral',
+    loadChildren: () => import('./pages/infogeneral/infogeneral.module').then( m => m.InfogeneralPageModule)
+  },
+  {
+    path: 'home/barberias/:id/servicios',
+    loadChildren: () => import('./pages/servicios/servicios.module').then( m => m.ServiciosPageModule)
   }
  
 ];

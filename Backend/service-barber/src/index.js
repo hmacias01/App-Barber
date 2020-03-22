@@ -27,13 +27,18 @@ app.set('port', process.env.PORT || 3000);
 app.use(require('./routes'));
 const authentificationRoutes = require("./routes/authentification");
 const BaberiasRoutes = require("./routes/barberias");
-
+const servicios = require("./routes/servicios");
+const Barberos = require("./routes/barberos");
+const Citas = require("./routes/citas");
 
 
 
 // usando routes
 app.use("/usuario",authentificationRoutes);
 app.use("/barberias",BaberiasRoutes);
+app.use("/servicios",servicios);
+app.use("/barberos",Barberos);
+app.use("/citas",Citas);
 
 // app.use('/links',require('./routes/links'));
 

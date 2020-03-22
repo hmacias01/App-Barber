@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+  Información general
+    </ion-title>
+  </ion-toolbar>
+</ion-header> 
+<br>
+<ion-content>
+  <ion-list *ngFor="let info of informacion">
+    <ion-item >
+      <h5 color="dark">Nombre:</h5><label padding>{{ info.Nombre}}</label>
+    </ion-item>
+    <ion-item>
+    <h5 color="dark">Direción:</h5>:<label padding>{{info.Direccion}}</label>
+    </ion-item>
+    <ion-item>
+      <h5 color="dark">Telefono:</h5><label padding>{{info.Telefono}}</label>
+    </ion-item>
+    <ion-item>
+      <h5 color="dark">Cantidad Barberos:</h5> <label padding>{{info.CantBarbero}}</label>
+    </ion-item>
+    <ion-item>
+      <h5 color="dark">Correo:</h5> <label padding>{{info.Correo}}</label>
+    </ion-item>
+    <ion-item>
+      <h5 color="dark">Horarios:</h5> <label padding>{{info.Horarios}}</label>
+    </ion-item>
+
+
+  </ion-list>
+
+</ion-content>

@@ -4,24 +4,35 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      List
+      Mis Citas
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
-      </div>
-    </ion-item>
-  </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
-    </div>
-  -->
+<br>
+<ion-content >
+    <ion-list>
+       <ion-item>
+        <ion-input placeholder="Usuario"  [(ngModel)]="cita.Id_Usuario" autofocus="true"></ion-input>
+      </ion-item>
+      <ion-button color="secondary"  (click)="Mostrarcitas()">Cargar</ion-button>
+      <br>
+      <ion-item *ngFor="let cit of moscita">
+        <h5 color="dark">Fecha:</h5><label padding>{{ cit.Fecha}}</label>
+      </ion-item>
+      <ion-item *ngFor="let cit of moscita">
+      <h5 color="dark">Inicio:</h5>:<label padding>{{cit.Inicio}}</label>
+      </ion-item>
+      <ion-item *ngFor="let cit of moscita">
+        <h5 color="dark">Final:</h5><label padding>{{cit.Final}}</label>
+      </ion-item>
+      <ion-item *ngFor="let cit of moscita">
+        <h5 color="dark">Barberia:</h5> <label padding>{{cit.barberias}}</label>
+      </ion-item>
+      <ion-item *ngFor="let cit of moscita">
+        <h5 color="dark">Barbero:</h5> <label padding>{{cit.Id_Barbero}}</label>
+      </ion-item>
+      <ion-item *ngFor="let cit of moscita">
+        <h5 color="dark">Servicio:</h5> <label padding>{{cit.Nombre}}</label>
+      </ion-item>
+    </ion-list>
 </ion-content>

@@ -13,7 +13,7 @@
   <ion-card class="welcome-card">
     <img style="max-width: 17vh; height: 100px;width: 100px;" src="" alt=""/>
     <ion-card-header>   
-      <ion-card-title ></ion-card-title>
+      <ion-card-title *ngFor="let titu of titulo">{{titu.Nombre}}</ion-card-title>
     </ion-card-header>
   </ion-card>
   <ion-grid>
@@ -37,7 +37,7 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-card >
+        <ion-card routerLink="infogeneral">
           <img style="height: 100px;width: 150px;" class="center" src="../../../assets/info.png" alt=""/>
           <ion-card-header>   
             <ion-card-subtitle>Informacion  general</ion-card-subtitle>
@@ -45,7 +45,7 @@
         </ion-card>
       </ion-col>
       <ion-col>
-        <ion-card class="welcome-card">
+        <ion-card class="welcome-card" routerLink="servicios">
           <img style="height: 100px;width: 150px;" class="center" src="../../../assets/servicios.png"  alt=""/>
           <ion-card-header>   
             <ion-card-subtitle>productos y servicios</ion-card-subtitle>

@@ -20,6 +20,10 @@ export class UsuarioService {
        this.apiURL + "add/" , usuario);
   }
 
+  Obtenerid(usuario){
+    return this.http.get(this.apiURL+ "get2/"+usuario);
+  }
+
   // Editarusuario(Usuario:usuario){
   //   return this.http.put<usuario>(
   //     this.apiURL + "/" + Usuario.,usuario

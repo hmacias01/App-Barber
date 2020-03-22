@@ -6,7 +6,7 @@ const pool = require('../database');
 Router.get('/',(req,res)=>{
     res.send('sep');
 });
-//Selecionar todas las barberias
+//Selecionar todas las barberias para mostrar en el home
 Router.get('/get', (req, res) => {
     console.log("Seleccionar todas las barberias")
 
@@ -22,6 +22,27 @@ Router.get('/get', (req, res) => {
         res.json(rows)
     })
 });
+
+//Mostrar informacion de las barberias
+Router.get('/get/:id', (req, res) => {
+    console.log("Seleccionar informacion barberia: "+ req.params.id)
+
+    const Id_Barberia= req.params.id
+    const queryString = "SELECT u.Nombres,b.Nombre,b.Direccion,b.Telefono,b.CantBarbero,b.Correo,b.Horarios FROM usuario AS u INNER JOIN barberias as b ON u.IdUsuario = b.Id_Usuario WHERE IdBarberia=?"
+    pool.query(queryString, [Id_Barberia],(err, rows, fields) => {
+        if(err){
+            console.log("Servicio" + err)
+            res.sendStatus(500)
+            res.end()
+            return
+        }
+        console.log("Servicio Seleccionado")
+        res.json(rows)
+    })
+});
+
+
+
 
 Router.post('/add', async (req, res) =>{
 

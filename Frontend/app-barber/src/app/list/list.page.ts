@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ReservarcitaService } from "../service/reservarcita.service";
+import {  citas} from "../models/citas";
 
 @Component({
   selector: 'app-list',
@@ -6,34 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['list.page.scss']
 })
 export class ListPage implements OnInit {
-  // private selectedItem: any;
-  // private icons = [
-  //   'flask',
-  //   'wifi',
-  //   'beer',
-  //   'football',
-  //   'basketball',
-  //   'paper-plane',
-  //   'american-football',
-  //   'boat',
-  //   'bluetooth',
-  //   'build'
-  // ];
-  // public items: Array<{ title: string; note: string; icon: string }> = [];
-  // constructor() {
-  //   for (let i = 1; i < 11; i++) {
-  //     this.items.push({
-  //       title: 'Item ' + i,
-  //       note: 'This is item #' + i,
-  //       icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-  //     });
-  //   }
-  // }
+  moscita: any=[];
+  cita : citas
+  id:number=null;
 
   ngOnInit() {
+    this.Mostrarcitas(this.cita.Id_Usuario);
   }
-  // add back when alpha.4 is out
-  // navigate(item) {
-  //   this.router.navigate(['/list', JSON.stringify(item)]);
-  // }
+ 
+  constructor( private reservarservice : ReservarcitaService ) 
+  { 
+    this.cita= new citas(0,"","","",null,0,0,0,"");
+
+  }
+
+  //Mostrando servicios segun barberia
+Mostrarcitas(id){
+  this.reservarservice.Obtenercitas(this.cita.Id_Usuario).subscribe(data => {
+    this.moscita=data;
+    console.log(this.moscita); 
+  })
+}
 }
