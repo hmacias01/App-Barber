@@ -26,7 +26,7 @@ Router.get('/get/:id', (req, res) => {
     })
 });
 
-Router.get('/get/', (req, res) => {
+Router.get('/get', (req, res) => {
     console.log("Seleccionar servicio con id: "+ req.params.id)
 
     const Id_Barberia= req.params.id

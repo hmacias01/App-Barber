@@ -6,9 +6,9 @@ import { citas } from '../models/citas';
   providedIn: 'root'
 })
 export class ReservarcitaService {
-  apiURL ="http://localhost:3000/servicios/";
-  apiURL2 ="http://localhost:3000/barberos/";
-  apiURL3 ="http://localhost:3000/citas/";
+  apiURL ="http://localhost:443/servicios/";
+  apiURL2 ="http://localhost:443/barberos/";
+  apiURL3 ="http://localhost:443/citas/";
 
   constructor(private http:HttpClient) {
 
