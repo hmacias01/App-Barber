@@ -1,0 +1,9 @@
+Nombre servidor:
+fase1
+
+usuario:
+hmacias
+
+
+Contra:
+Estudiante7
