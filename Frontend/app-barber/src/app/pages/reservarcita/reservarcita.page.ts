@@ -12,14 +12,15 @@ import {  citas} from "../../models/citas";
 export class ReservarcitaPage implements OnInit {
   servicios : any=[];
   barberos  : any=[];
-  cita : citas
-
+  cita : citas;
+  miid:number=null;
   id:number=null;
 
   constructor(private alertCtrl: AlertController, private reservarservice : ReservarcitaService, private route: ActivatedRoute ) 
   { 
     console.log(this.route.snapshot.params['id']);
     this.id=+this.route.snapshot.params['id'];
+    this.miid= +localStorage.getItem("Logueo");
     this.cita= new citas(0,"","","",this.miid,0,this.id,0,"abierto");
   }
 
@@ -27,15 +28,15 @@ export class ReservarcitaPage implements OnInit {
     this.MostrarServicios(this.id)
     this.MostrarBarberos(this.id)
     this.resetEvent();
-    this.traerid();
   }
  
 //Reservar una cita oficial
     GuardarCita(){
+      console.log(this.cita);
          this.reservarservice.GuardarCita(this.cita).subscribe(data=>{
-          this.cita=data;
+           this.cita=data;
           console.log(this.cita);
-         }
+          }
     )
     }
 
@@ -54,11 +55,6 @@ MostrarBarberos(id){
 }
 
 //Trayendo id del usuario logueado
-miid:any=[];
-    traerid(){
-      this.miid=localStorage.getItem("Logueo");
-      console.log(this.miid);
-  }
 
 
 

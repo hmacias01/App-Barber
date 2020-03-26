@@ -6,7 +6,7 @@ export class citas{
         public Inicio: string,
         public Final: string,
         public Id_Usuario: number,
-        public Id_servicio: number,
+        public Id_Servicio: number,
         public Id_Barberia: number,
         public Id_Barbero: number,
         public  Estatus: string,
