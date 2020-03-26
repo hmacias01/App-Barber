@@ -68,7 +68,7 @@ Router.post('/add', async (req, res) =>{
     const Id_Barbero = req.body.Id_Barbero 
     const Estatus = req.body.Estatus 
 
-     const queryString = "INSERT INTO citas (Fecha,Inicio,Final,Id_Usuario, Id_Servicio, Id_Barberia,Id_Barbero,Estatus) VALUES (?,?,?,(SELECT idUsuario FROM usuario WHERE Nombres = ?),(SELECT IdServicio FROM servicios WHERE Nombre = ?),?,(SELECT IdBarbero FROM barberos WHERE Id_Usuario = (SELECT idUsuario FROM usuario WHERE Nombres =?)),?) "
+     const queryString = "INSERT INTO citas (Fecha,Inicio,Final,Id_Usuario, Id_Servicio, Id_Barberia,Id_Barbero,Estatus) VALUES (?,?,?,?,(SELECT IdServicio FROM servicios WHERE Nombre = ?),?,(SELECT IdBarbero FROM barberos WHERE Id_Usuario = (SELECT idUsuario FROM usuario WHERE Nombres =?)),?) "
      pool.query(queryString, [Fecha,Inicio,Final,Id_Usuario, Id_Servicio, Id_Barberia,Id_Barbero,Estatus], (err, results, fields) =>{
          if (err){
              console.log("Error cita: "+ err)
@@ -107,7 +107,7 @@ Router.post('/addd', async (req, res) =>{
     const Id_Barbero = req.body.Id_Barbero 
     const Estatus = req.body.Estatus 
 
-     const queryString = "INSERT INTO citas (Fecha,Inicio,Final,Id_Usuario, Id_Servicio, Id_Barberia,Id_Barbero,Estatus) VALUES (?,?,?,(SELECT idUsuario FROM usuario WHERE Nombres = ?),(SELECT IdServicio FROM servicios WHERE Nombre = ? AND Id_Barberia="+Id_Barberia+"),?,(SELECT IdBarbero FROM barberos WHERE Id_Usuario = (SELECT idUsuario FROM usuario WHERE Nombres =?)),?) "
+     const queryString = "INSERT INTO citas (Fecha,Inicio,Final,Id_Usuario, Id_Servicio, Id_Barberia,Id_Barbero,Estatus) VALUES (?,?,?,?,(SELECT IdServicio FROM servicios WHERE Nombre = ? AND Id_Barberia="+Id_Barberia+"),?,(SELECT IdBarbero FROM barberos WHERE Id_Usuario = (SELECT idUsuario FROM usuario WHERE Nombres =?)),?) "
      pool.query(queryString, [Fecha,Inicio,Final,Id_Usuario, Id_Servicio, Id_Barberia,Id_Barbero,Estatus], (err, results, fields) =>{
          if (err){
              console.log("Error cita: "+ err)

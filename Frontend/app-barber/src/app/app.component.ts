@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { usuario } from './models/usuario';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +10,8 @@ import { usuario } from './models/usuario';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-  id: any
-  public Usuario: usuario;
+
+  miid:any=[];
 
   public appPages = [
     {
@@ -41,12 +40,18 @@ export class AppComponent {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar,
-    private route: ActivatedRoute
+    private statusBar: StatusBar
   ) {
-    this.initializeApp();
-    console.log(this.route.snapshot.params['id']);
-    this.id=this.route.snapshot.params['id'];
+    
+  }
+
+  ngOnInit() {
+    this.traerid();
+  }
+ 
+    traerid(){
+      this.miid=localStorage.getItem("Usuario");
+      console.log(this.miid);
   }
  
 

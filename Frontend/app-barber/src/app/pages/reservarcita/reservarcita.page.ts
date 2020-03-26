@@ -20,13 +20,14 @@ export class ReservarcitaPage implements OnInit {
   { 
     console.log(this.route.snapshot.params['id']);
     this.id=+this.route.snapshot.params['id'];
-    this.cita= new citas(0,"","","",null,0,this.id,0,"abierto");
+    this.cita= new citas(0,"","","",this.miid,0,this.id,0,"abierto");
   }
 
   ngOnInit() {
     this.MostrarServicios(this.id)
     this.MostrarBarberos(this.id)
     this.resetEvent();
+    this.traerid();
   }
  
 //Reservar una cita oficial
@@ -51,6 +52,13 @@ MostrarBarberos(id){
     this.barberos=data;
   })
 }
+
+//Trayendo id del usuario logueado
+miid:any=[];
+    traerid(){
+      this.miid=localStorage.getItem("Logueo");
+      console.log(this.miid);
+  }
 
 
 

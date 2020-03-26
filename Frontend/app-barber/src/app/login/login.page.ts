@@ -13,21 +13,30 @@ import { FormGroup} from '@angular/forms';
 export class LoginPage implements OnInit {
   LoginForm : FormGroup
   public Usuario: usuario;
-  id=null ;
+  id:any=[];
 
   constructor( private loginservice: UsuarioService, private router : Router) { 
     this.Usuario= new usuario(0,"","","","",0);
   }
 
   ngOnInit() {
-  // this.getid();
+  
   }
 
    getid(){
      this.loginservice.Obtenerid(this.Usuario.Usuario).subscribe(data=>{
-       this.id=data
-   //    console.log(this.id);
+      //this.id=JSON.stringify(data);
+      this.id=data;  
+      this.guardarid();
+      console.log(this.id);
      })
+   }
+
+   guardarid(){
+    for (let i of this.id) {
+      this.id=  i.idUsuario;
+      } 
+    localStorage.setItem("Logueo",this.id);
    }
 
 
@@ -36,6 +45,8 @@ export class LoginPage implements OnInit {
        if(data=="false"){
        console.log("credenciales incorrectas");
        }
+       this.getid();
+       localStorage.setItem("Usuario",this.Usuario.Usuario);
        this.router.navigate(['home']);
     })
    }

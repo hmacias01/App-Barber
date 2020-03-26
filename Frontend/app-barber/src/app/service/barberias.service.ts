@@ -6,8 +6,8 @@ import { barberias} from "../models/barberias";
   providedIn: 'root'
 })
 export class BarberiasService {
-  apiURL ="http://localhost:443/barberias/";
-  apiURL2 ="http://localhost:443/servicios/";
+  apiURL ="http://40.83.177.90:443/barberias/";
+  apiURL2 ="http://40.83.177.90:443/servicios/";
 
   constructor(private http:HttpClient) { }
 

@@ -6,7 +6,7 @@ import {  usuario} from "../models/usuario";
   providedIn: 'root'
 })
 export class UsuarioService {
-  apiURL ="http://localhost:443/usuario/";
+  apiURL ="http://40.83.177.90:443/usuario/";
 
 
   constructor(private http :HttpClient) { }

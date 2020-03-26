@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReservarcitaService } from "../service/reservarcita.service";
 import {  citas} from "../models/citas";
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-list',
@@ -9,24 +10,27 @@ import {  citas} from "../models/citas";
 })
 export class ListPage implements OnInit {
   moscita: any=[];
-  cita : citas
-  id:number=null;
+ 
 
   ngOnInit() {
-    this.Mostrarcitas(this.cita.Id_Usuario);
+   this.Mostrarcitas(this.miid);
   }
  
   constructor( private reservarservice : ReservarcitaService ) 
-  { 
-    this.cita= new citas(0,"","","",null,0,0,0,"");
-
-  }
+  {  }
 
   //Mostrando servicios segun barberia
-Mostrarcitas(id){
-  this.reservarservice.Obtenercitas(this.cita.Id_Usuario).subscribe(data => {
-    this.moscita=data;
-    console.log(this.moscita); 
-  })
-}
+ Mostrarcitas(id){
+    this.traerid();
+   this.reservarservice.Obtenercitas(this.miid).subscribe(data => {
+     this.moscita=data;
+     console.log(this.moscita); 
+   })
+ }
+ 
+    miid:any=[];;
+    traerid(){
+      this.miid=localStorage.getItem("Logueo");
+      console.log(this.miid);
+  }
 }
