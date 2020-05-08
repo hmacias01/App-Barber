@@ -1,5 +1,5 @@
 
- <ion-content padding center text-center>
+ <ion-content class="ion-padding ion-text-center">
   <ion-button class="back-button"size="small" fill="outline" (click) ="regregarlogin()">
     <ion-icon slot="start" name="md-arrow-back"></ion-icon>
   </ion-button>
@@ -7,33 +7,96 @@
   <img src="../.././/assets/logo2.png">
   <br>
   <ion-toolbar >
-    <ion-title padding center text-center>Crear Cuenta</ion-title>
+    <ion-title class="ion-padding ion-text-center">Crear Cuenta</ion-title>
   </ion-toolbar>
+  <form [formGroup]="registerForm">
+
   <ion-list lines="full" class="ion-no-margin ion-no-padding">
-    <ion-item>
-      <ion-input placeholder="Nombres" [(ngModel)]="Usuarios.Nombres" autofocus="true"></ion-input>
+      <ion-item>
+        <ion-input formControlName="Nombre" type="text" class="form-control" placeholder="Nombres" required [(ngModel)]="Usuarios.Nombres" ></ion-input>
+      </ion-item>
+      <div class="Validation-error">
+        <ng-container *ngFor="let valid of  Validation_messages.Nombre">
+          <div *ngIf="registerForm.get('Nombre').hasError(valid.type) && 
+                    (registerForm.get('Nombre').dirty || 
+                    registerForm.get('Nombre').touched)">
+            {{valid.message}}
+          </div>
+        </ng-container>
+      </div>
+  <ion-item>
+      <ion-input formControlName="Apellido" type="text" class="form-control"   placeholder="Apellidos" [(ngModel)]="Usuarios.Apellidos" ></ion-input>
     </ion-item>
-     <ion-item>
-      <ion-input placeholder="Apellidos" [(ngModel)]="Usuarios.Apellidos"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input placeholder="Usuario" [(ngModel)]="Usuarios.Usuario"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input placeholder="Contraseña" [(ngModel)]="Usuarios.Password" type="password"></ion-input>
+    <div class="Validation-error">
+      <ng-container *ngFor="let valid of  Validation_messages.Apellido">
+        <div *ngIf="registerForm.get('Apellido').hasError(valid.type) && 
+                  (registerForm.get('Apellido').dirty || 
+                  registerForm.get('Apellido').touched)">
+          {{valid.message}}
+        </div>
+      </ng-container>
+    </div>
+        <ion-item>
+      <ion-input  formControlName="Usuario" type="text" class="form-control"   placeholder="Usuario" [(ngModel)]="Usuarios.Usuario"  ></ion-input>
     </ion-item> 
+    <div class="Validation-error">
+      <ng-container *ngFor="let valid of  Validation_messages.Usuario">
+        <div *ngIf="registerForm.get('Usuario').hasError(valid.type) && 
+                  (registerForm.get('Usuario').dirty || 
+                  registerForm.get('Usuario').touched)">
+          {{valid.message}}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
+      <ion-input  formControlName="email" placeholder="Correo"  ></ion-input>
+    </ion-item>
+    <div class="Validation-error">
+      <ng-container *ngFor="let valid of  Validation_messages.email">
+        <div *ngIf="registerForm.get('email').hasError(valid.type) && 
+                  (registerForm.get('email').dirty || 
+                  registerForm.get('email').touched)">
+          {{valid.message}}
+        </div>
+      </ng-container>
+    </div>
+  <ion-item>
+      <ion-input formControlName="password" placeholder="Contraseña" [(ngModel)]="Usuarios.Password" type="password"></ion-input>
+    </ion-item> 
+    <div class="Validation-error">
+      <ng-container *ngFor="let valid of  Validation_messages.password">
+        <div *ngIf="registerForm.get('password').hasError(valid.type) && 
+                  (registerForm.get('password').dirty || 
+                  registerForm.get('password').touched)">
+          {{valid.message}}
+        </div>
+      </ng-container>
+    </div>
     <ion-item>
       <ion-label>Tipo Usuario</ion-label>
-      <ion-select placeholder="seleccionar" [(ngModel)]="Usuarios.Id_rol">
-        <!-- <ion-select-option value="0">Tipo Usuario</ion-select-option> -->
+      <ion-select formControlName="Tipo" placeholder="seleccionar" [(ngModel)]="Usuarios.Id_rol" >
         <ion-select-option >Cliente</ion-select-option> 
         <ion-select-option >Propietario</ion-select-option> 
         <ion-select-option >Barbero</ion-select-option>                 
       </ion-select>
-    </ion-item> 
+    </ion-item>   
   </ion-list>
+  <div class="Validation-error">
+    <ng-container *ngFor="let valid of  Validation_messages.Tipo">
+      <div *ngIf="registerForm.get('Tipo').hasError(valid.type) && 
+                (registerForm.get('Tipo').dirty || 
+                registerForm.get('Tipo').touched)">
+        {{valid.message}}
+      </div>
+    </ng-container>
+  </div>
+</form>
 
    <div class="ion-padding">
-    <ion-button color="secondary" expand="block" type="submit" class="ion-no-margin"(click) ="CrearUsuario()">Crear Cuenta</ion-button>
+    <ion-button color="secondary" expand="block" 
+                type="submit" class="ion-no-margin"
+                (click) ="CrearUsuario()"
+                [disabled]="!registerForm.valid"
+                >Crear Cuenta</ion-button>
   </div> 
 </ion-content>

@@ -11,25 +11,30 @@ h5 {
 }
 
 ion-searchbar{
-  margin-bottom: -20px;
-  --ion-background-color:  rgba(66, 172, 233, 0.973);
-  color: white;
+  --ion-background-color:white;
+ // color: white;
 }
 
 ion-item{
-  border-bottom:rgb(114, 25, 25) 1px solid;
+  border-bottom:rgb(114, 25, 25) 1.5px solid;
 }
 
 ion-label{
   color: white;
 }
 
+ion-toolbar{
+  --ion-background-color: rgba(11, 90, 236, 0.973);
+  color: black;
+}
 ion-content {
-  --ion-background-color:  rgba(66, 172, 233, 0.973);
+  --ion-background-color: rgb(210, 235, 250);
 }
 
-ion-card{
-  --ion-background-color:  rgba(66, 172, 233, 0.973);
+.mostrar{
+  --ion-background-color: white;
 }
+
+
 
 

@@ -15,7 +15,7 @@
   <ion-card-header tappable (click)="collapseCard = !collapseCard">
     <ion-card-title text-center>Nueva cita</ion-card-title>
   </ion-card-header>
-  <ion-card-content *ngIf="!collapseCard">
+  <ion-card-content *ngIf="collapseCard">
 
     <ion-item >
       <ion-label>Tipo Servicio</ion-label>

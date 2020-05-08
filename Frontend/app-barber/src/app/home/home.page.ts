@@ -13,6 +13,7 @@ export class HomePage {
  // Barberias: barberias;
   Barberia : barberias[];
    id:number=null
+   
   constructor(private barbeservice:BarberiasService,private router : Router,private route: ActivatedRoute) {
     //this.Bar= new barberias(0,"","","","",0,0);
     console.log(this.route.snapshot.params['id']);
@@ -43,4 +44,5 @@ export class HomePage {
       }      
     }
 
+  
 }
